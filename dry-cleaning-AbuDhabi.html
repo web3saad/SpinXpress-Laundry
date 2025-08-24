@@ -90,13 +90,35 @@
   <div class="container py-5" style="margin-top: 60px;">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-md-10 col-12">
-        <nav aria-label="breadcrumb" class="mb-3">
-          <ol class="breadcrumb bg-white px-3 py-2 rounded">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dry Cleaning in Abu Dhabi</li>
-          </ol>
-        </nav>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
+     id="main-navbar"
+     aria-label="Primary navigation"
+     style="background:linear-gradient(90deg,#d7263d 0%,#a8182e 100%);
+            box-shadow:0 4px 16px rgba(215,38,61,.15);">
+  <div class="container">
+    <a class="navbar-brand text-uppercase" href="index.html" aria-label="SpinXpress Home">
+      <img src="assets/images/logo-nav.png" alt="SpinXpress Laundry Abu Dhabi logo"
+           style="height:40px;" width="140" height="40">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" target="_top">Home</a></li>
+        <li class="nav-item active"><a class="nav-link" id="blog-link" href="blog.html" aria-current="page">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
         <article class="card shadow-lg rounded-4 border-0 p-4" style="background:#fff;">
           <img src="assets/images/blog3.jpg" alt="Dry cleaning in Abu Dhabi – same‑day, eco‑friendly, pickup & delivery" class="img-fluid rounded-4 mb-4 w-100" style="max-height:340px;object-fit:cover;">
