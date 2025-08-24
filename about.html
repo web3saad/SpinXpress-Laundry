@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About Us | SpinXpress Laundry Abu Dhabi</title>
+
+  <!-- Same CSS & fonts as index -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Rajdhani:400,500,600|Dosis:300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root{ --navH: 72px; }
+
+    /* ----- NAVBAR (always on top, red, white hamburger) ----- */
+    #main-navbar{
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 12000 !important;
+      background: linear-gradient(90deg,#d7263d 0%,#a8182e 100%) !important;
+      box-shadow: 0 4px 16px rgba(215,38,61,.15);
+      border-bottom: 0;
+      padding: 8px 0;
+    }
+    #main-navbar .navbar-brand{
+      padding: 0; margin-right: .75rem; display: flex; align-items: center; min-height: 40px;
+    }
+    #main-navbar .brand-logo{ height: 38px; max-height: 38px; width: auto; display: block; object-fit: contain; }
+    @media (min-width: 992px){
+      #main-navbar{ padding: 10px 0; }
+      #main-navbar .brand-logo{ height: 44px; max-height: 44px; }
+    }
+    body.about-page{ padding-top: var(--navH); scroll-padding-top: var(--navH); }
+
+    /* nav links */
+    #main-navbar .nav-link{ color: #fff !important; }
+    /* black “Order Pickup” button in nav */
+    .rinse-nav .btn-pill{ background: #000 !important; border-color: #000 !important; color: #fff !important; }
+    .rinse-nav .btn-pill:hover{ background:#111 !important; border-color:#111 !important; color:#fff !important; }
+
+    /* white hamburger */
+    #main-navbar .navbar-toggler{ border: 1.5px solid rgba(255,255,255,.85) !important; }
+    #main-navbar .navbar-toggler:focus{ outline: none !important; box-shadow: 0 0 0 3px rgba(255,255,255,.35) !important; }
+    #main-navbar .toggler-bars,
+    #main-navbar .toggler-bars::before,
+    #main-navbar .toggler-bars::after{
+      content: ""; display: block; width: 24px; height: 2px; border-radius: 2px; background: #fff !important;
+    }
+    #main-navbar .toggler-bars{ position: relative; }
+    #main-navbar .toggler-bars::before{ position:absolute; left:0; transform: translateY(-6px); }
+    #main-navbar .toggler-bars::after{  position:absolute; left:0; transform: translateY( 4px); }
+
+    /* mobile collapse sheet + black links when open */
+    @media (max-width: 800px){
+      #main-navbar .navbar-collapse{
+        background: rgba(255,255,255,.70) !important;
+        backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+        border-radius: 12px; position: absolute; left: 8px; right: 8px; top: 56px;
+        padding: 10px 14px 14px; box-shadow: 0 12px 30px rgba(0,0,0,.15); z-index: 12001;
+      }
+      #main-navbar .navbar-collapse.show .nav-link,
+      #main-navbar .navbar-collapse.collapsing .nav-link{ color:#111 !important; }
+    }
+
+    /* ----- HERO (tight under the navbar, gradient only) ----- */
+    .page-hero{
+      color:#fff; text-align:center; position:relative; overflow:hidden;
+      padding: 12px 0 28px;                           /* tight top padding */
+      border-bottom-left-radius:24px; border-bottom-right-radius:24px;
+      background: linear-gradient(180deg,rgba(215,38,61,.88),rgba(168,24,46,.88));
+      margin-top: 0;
+    }
+    .page-hero h1{
+      font-family:'Rajdhani',sans-serif; font-weight:800; letter-spacing:.3px;
+      font-size: clamp(28px,5.4vw,40px); margin: 0;
+      text-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+
+    /* ----- ABOUT CARD (images removed) ----- */
+    body.about-page #about{ display:block !important; visibility:visible !important; opacity:1 !important; height:auto !important; }
+    .about-card{
+      position: relative; z-index: 1;
+      margin: 16px auto 18px; border-radius: 20px; padding: 22px 18px;
+      background: linear-gradient(160deg,#ffffff 0%,#fff6f7 100%);
+      border: 1px solid rgba(215,38,61,.18); box-shadow: 0 14px 36px rgba(215,38,61,.12);
+      text-align: center;
+    }
+    @media (min-width:768px){ .about-card{ margin: -20px auto 18px; padding: 24px 20px; } }
+
+    /* remove badge & feature icons */
+    .about-badge, .about-features .feat-ico{ display: none !important; }
+
+    .about-title{
+      background: linear-gradient(90deg,#d7263d,#a8182e);
+      -webkit-background-clip:text; background-clip:text; color: transparent;
+      font-weight: 800; font-size: clamp(20px,4.6vw,28px); margin: 6px 0;
+    }
+    .about-sub, .about-foot{ color:#374151; font-size:.98rem; max-width:720px; margin:.25rem auto; }
+
+    .about-features .feat{
+      height:100%; background:#fff; border:1px solid rgba(215,38,61,.14);
+      border-radius:16px; padding:14px 14px; box-shadow:0 10px 24px rgba(215,38,61,.08);
+      text-align:center;
+    }
+    .about-features h5{ font-weight:700; margin-bottom:6px; color:#a8182e; font-size:1rem; }
+    .about-features p{ color:#4b5563; font-size:.95rem; margin:0; }
+
+    .about-stats{
+      margin:16px auto 6px; display:flex; align-items:center; justify-content:center; gap:14px;
+      padding:10px 14px; border-radius:999px;
+      background: linear-gradient(90deg,#fff 0%,#fff5f6 100%); border:1px solid rgba(215,38,61,.14);
+    }
+    .about-stats .stat{ line-height:1; text-align:center; }
+    .about-stats .stat strong{ color:#d7263d; font-weight:800; font-size:1.05rem; }
+    .about-stats .stat span{ display:block; font-size:.8rem; color:#6b7280; margin-top:2px; }
+    .about-stats .dot{ width:6px; height:6px; background:#f1b6bf; border-radius:50%; }
+
+    /* BS4 "gap" polyfill for .g-3 rows */
+    .row.g-3{ margin-left:-.75rem; margin-right:-.75rem; }
+    .row.g-3 > [class^="col-"], .row.g-3 > [class*=" col-"]{ padding-left:.75rem; padding-right:.75rem; }
+
+    /* small screens */
+    @media (max-width:575.98px){
+      .about-stats{ flex-wrap:wrap; row-gap:8px; }
+      .about-stats .dot{ display:none; }
+    }
+
+    /* remove any global watermarks/pseudo backgrounds that might leak in */
+    body.about-page, body.about-page::before, body.about-page::after,
+    .page-hero::before, .page-hero::after{ background:none !important; box-shadow:none !important; content:none !important; }
+  </style>
+</head>
+
+<body class="about-page">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top rinse-nav" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo-nav.png" alt="SpinXpress logo" class="brand-logo"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item active"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact-footer">Contact</a></li>
+          <li class="nav-item ml-lg-3 mt-3 mt-lg-0">
+            <a class="btn btn-outline-light btn-pill" href="https://wa.me/971505846456?text=I%20would%20like%20to%20request%20a%20laundry%20pickup%20from%20SpinXpress." target="_blank">Order Pickup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container"><h1>About SpinXpress</h1></div>
+  </header>
+
+  <!-- Content -->
+  <main>
+    <section id="about" class="about-modern py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-9 col-lg-10 col-md-11">
+            <div class="about-card">
+              <h2 class="about-title">Premium Laundry &amp; Dry Cleaning</h2>
+              <p class="about-sub">
+                SpinXpress blends advanced technology, eco-friendly solutions, and a people-first
+                approach for flawless results and a seamless experience—every time.
+              </p>
+
+              <div class="row g-3 about-features">
+                <div class="col-sm-4">
+                  <div class="feat">
+                    <h5>Expert Care</h5>
+                    <p>Your garments are treated with precision and respect by skilled professionals.</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="feat">
+                    <h5>Professional Precision</h5>
+                    <p>State-of-the-art equipment and proven methods for immaculate results.</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="feat">
+                    <h5>Eco-Friendly</h5>
+                    <p>Cleaning solutions that are safe for your clothes and the environment.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-stats">
+                <div class="stat"><strong>60–90m</strong><span>Pickup window</span></div>
+                <div class="dot"></div>
+                <div class="stat"><strong>5000+</strong><span>Orders completed</span></div>
+                <div class="dot"></div>
+                <div class="stat"><strong>24-Hour</strong><span>Express option</span></div>
+              </div>
+
+              <p class="about-foot">From daily wear to cherished pieces, SpinXpress returns every item fresh, spotless, and ready to impress.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <a class="btn btn-gradient-red" href="index.html#top">← Back to Home</a>
+  </footer>
+
+  <!-- Bootstrap (needs jQuery for BS4 navbar toggler) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script>
+    // Keep --navH equal to actual navbar height (handles font load + mobile collapse)
+    (function(){
+      var nav = document.getElementById('main-navbar');
+      function setNavH(){
+        if(!nav) return;
+        var h = nav.getBoundingClientRect().height || 72;
+        document.documentElement.style.setProperty('--navH', h + 'px');
+      }
+      setNavH();
+      window.addEventListener('resize', setNavH);
+      $('#navbarSupportedContent').on('shown.bs.collapse hidden.bs.collapse', setNavH);
+      setTimeout(setNavH, 300); // after webfonts/layout settle
+    })();
+  </script>
+</body>
+</html>
